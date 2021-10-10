@@ -4,7 +4,9 @@ import sys
 import time
 import json
 
-url = "https://api.telegram.org/bot2051251122:AAFRojZSo1Bk9VXMz_e9Rs-5xYdWxzAiXKU"
+print("Pls, enter your bot token")
+token = input()
+url = f"https://api.telegram.org/bot{token}"
 
 response = req.get(url + "/getMe")
 if (response.status_code != 200):
@@ -27,8 +29,11 @@ while (True):
 				params = {'chat_id': message["message"]["chat"]["id"], 'text': mess}
 				req.get(url + "/sendMessage", params = params)
 				sys.exit()
-			elif (s == "/dnevnik"):
-				pass
+			elif (s == "/suck"):
+				mess = "Your mom has done it"
+				params = {'chat_id': message["message"]["chat"]["id"], 'text': mess}
+				req.get(url + "/sendMessage", params = params)
+				sys.exit()
 			else:
 				pass
 		else:
